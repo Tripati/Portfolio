@@ -20,6 +20,13 @@
       ],
       weight: 1,
     },
+    publishedApps: {
+      keywords: [
+        'published', 'play store', 'google play', 'shipped', 'released', 'locum', 'crm', 'stay well',
+        'store link', 'live app', 'production app',
+      ],
+      weight: 1.2,
+    },
     skills: {
       keywords: [
         'skill', 'skills', 'kotlin', 'compose', 'jetpack', 'android', 'architecture', 'mvvm', 'technical',
@@ -42,6 +49,26 @@
     ai: {
       keywords: ['ai', 'copilot', 'genai', 'claude', 'gemini', 'artificial', 'machine learning', 'llm', 'assistant'],
       weight: 1,
+    },
+    airline: {
+      keywords: ['airline', 'airways', 'aviation', 'travel', 'amadeus', 'checkmytrip'],
+      weight: 1.3,
+    },
+    banking: {
+      keywords: ['banking', 'bank', 'npci', 'payment', 'nfc', 'hce', 'finance', 'fintech'],
+      weight: 1.3,
+    },
+    enterprise: {
+      keywords: ['enterprise', 'b2b', 'campbell', 'cintas', 'dynamics', 'sap', 'field service', 'retail'],
+      weight: 1.2,
+    },
+    resume: {
+      keywords: ['resume', 'cv', 'download', 'pdf', 'document'],
+      weight: 1.4,
+    },
+    testimonials: {
+      keywords: ['testimonial', 'recommendation', 'reference', 'feedback', 'review', 'endorse'],
+      weight: 1.2,
     },
   };
 
@@ -66,6 +93,7 @@
     els.fab = document.getElementById('tiru-fab');
     els.panel = document.getElementById('tiru-panel');
     els.closeBtn = document.getElementById('tiru-close');
+    els.clearBtn = document.getElementById('tiru-clear');
     els.messages = document.getElementById('tiru-messages');
     els.input = document.getElementById('tiru-input');
     els.sendBtn = document.getElementById('tiru-send');
@@ -74,8 +102,12 @@
   }
 
   function bindEvents() {
-    els.fab.addEventListener('click', togglePanel);
+    els.fab.addEventListener('click', () => {
+      trackEvent('Tiru Open');
+      togglePanel();
+    });
     els.closeBtn.addEventListener('click', closePanel);
+    if (els.clearBtn) els.clearBtn.addEventListener('click', clearChat);
     els.sendBtn.addEventListener('click', handleSend);
     els.input.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' && !e.shiftKey) {
@@ -94,6 +126,21 @@
       els.input.value = chip.dataset.prompt || chip.textContent.trim();
       handleSend();
     });
+  }
+
+  function trackEvent(name) {
+    if (typeof window.plausible === 'function') {
+      window.plausible(name);
+    }
+  }
+
+  function clearChat() {
+    if (isTyping) return;
+    els.messages.innerHTML = '';
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (_) { /* ignore */ }
+    showWelcome();
   }
 
   function togglePanel() {
@@ -250,6 +297,24 @@
       case 'ai':
         return renderAi();
 
+      case 'publishedApps':
+        return renderPublishedApps();
+
+      case 'testimonials':
+        return renderTestimonials();
+
+      case 'airline':
+        return renderDomain('airline');
+
+      case 'banking':
+        return renderDomain('banking');
+
+      case 'enterprise':
+        return renderDomain('enterprise');
+
+      case 'resume':
+        return renderResume();
+
       default:
         return renderFallback();
     }
@@ -357,15 +422,80 @@
 
   function renderContact() {
     const p = KB.profile || {};
+    const resume = p.resumeUrl || 'resume.pdf';
     return (
       `<p>Here's how to reach Tripaty:</p>` +
       `<div class="tiru-contact-actions">` +
       `<a href="mailto:${p.email}" class="tiru-action-btn tiru-action-btn--email">Email</a>` +
       `<a href="${p.linkedin}" target="_blank" rel="noopener noreferrer" class="tiru-action-btn tiru-action-btn--linkedin">LinkedIn</a>` +
       `<a href="tel:${p.phone.replace(/[^+\d]/g, '')}" class="tiru-action-btn tiru-action-btn--phone">Call</a>` +
+      `<a href="${resume}" download class="tiru-action-btn tiru-action-btn--resume">Resume</a>` +
+      `<a href="#contact" class="tiru-action-btn tiru-action-btn--phone">Contact Form</a>` +
       `</div>` +
       `<p>${p.email} &bull; ${p.phone}</p>` +
       `<p><em>${p.availability}</em></p>`
+    );
+  }
+
+  function renderPublishedApps() {
+    const apps = KB.publishedApps || [];
+    let html = `<p>Tripaty has shipped these published Android apps:</p><ul>`;
+    apps.forEach((app) => {
+      html +=
+        `<li><strong>${app.name}</strong> (${app.category}) — ${app.description} ` +
+        `<a href="${app.link}" target="_blank" rel="noopener noreferrer" class="tiru-link">Play Store &rarr;</a></li>`;
+    });
+    html += `</ul><p><a href="#apps" class="tiru-link">View published apps &darr;</a></p>`;
+    return html;
+  }
+
+  function renderTestimonials() {
+    const items = KB.testimonials || [];
+    let html = `<p>What colleagues say about Tripaty's leadership:</p>`;
+    items.slice(0, 2).forEach((t) => {
+      html +=
+        `<div class="tiru-case">` +
+        `<p><em>"${t.quote}"</em></p>` +
+        `<p><strong>${t.name}</strong> — ${t.title}, ${t.company}</p>` +
+        `</div>`;
+    });
+    html += `<p><a href="#testimonials" class="tiru-link">Read recommendations &darr;</a></p>`;
+    return html;
+  }
+
+  function renderDomain(domain) {
+    const studies = (KB.caseStudies || []).filter((cs) =>
+      (cs.keywords || []).some((kw) => {
+        if (domain === 'airline') return ['qatar', 'airline', 'airways', 'aviation', 'travel'].includes(kw);
+        if (domain === 'banking') return ['npci', 'payment', 'nfc', 'banking'].includes(kw);
+        if (domain === 'enterprise') return ['campbell', 'cintas', 'dynamics', 'enterprise', 'star'].includes(kw);
+        return false;
+      })
+    );
+
+    const domainLabels = { airline: 'airline', banking: 'banking and payments', enterprise: 'enterprise' };
+    let html = `<p>Yes — Tripaty has <strong>${domainLabels[domain]}</strong> experience:</p>`;
+
+    if (studies.length > 0) {
+      studies.forEach((cs) => {
+        html += `<p><strong>${cs.project}</strong> (${cs.company}) — ${cs.result}</p>`;
+      });
+    } else {
+      html += `<p>See case studies in the experience section for details.</p>`;
+    }
+
+    html += `<p><a href="#experience" class="tiru-link">View case studies &darr;</a></p>`;
+    return html;
+  }
+
+  function renderResume() {
+    const p = KB.profile || {};
+    const faqs = KB.faqs || {};
+    const resume = p.resumeUrl || 'resume.pdf';
+    return (
+      `<p>${faqs.hiring || ''}</p>` +
+      `<p><a href="${resume}" download class="tiru-link">Download resume (PDF) &darr;</a></p>` +
+      `<p><a href="${p.linkedin}" target="_blank" rel="noopener noreferrer" class="tiru-link">LinkedIn profile &rarr;</a></p>`
     );
   }
 
@@ -435,13 +565,13 @@
     const messages = loadMessages();
     messages.push({ role, html, ts: Date.now() });
     try {
-      sessionStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
     } catch (_) { /* quota exceeded */ }
   }
 
   function loadMessages() {
     try {
-      const raw = sessionStorage.getItem(STORAGE_KEY);
+      const raw = localStorage.getItem(STORAGE_KEY);
       return raw ? JSON.parse(raw) : [];
     } catch (_) {
       return [];

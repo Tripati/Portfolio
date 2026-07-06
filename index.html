@@ -5,15 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Tripaty Kumar Sahu — Engineering Manager, Mobile (Native Android). 14+ years leading Android teams across enterprise and consumer apps.">
   <title>Tripaty Kumar Sahu | Engineering Manager — Mobile</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="canonical" href="https://tripati.github.io/Portfolio/">
   <meta property="og:type" content="profile">
   <meta property="og:title" content="Tripaty Kumar Sahu | Engineering Manager — Mobile">
   <meta property="og:description" content="14+ years leading Android teams across airlines, banking, healthcare, and enterprise. Kotlin, Jetpack Compose, Clean Architecture.">
   <meta property="og:url" content="https://tripati.github.io/Portfolio/">
+  <meta property="og:image" content="https://tripati.github.io/Portfolio/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:locale" content="en_IN">
-  <meta name="twitter:card" content="summary">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Tripaty Kumar Sahu | Engineering Manager — Mobile">
   <meta name="twitter:description" content="14+ years leading Android teams across airlines, banking, healthcare, and enterprise.">
+  <meta name="twitter:image" content="https://tripati.github.io/Portfolio/og-image.png">
+  <script defer data-domain="tripati.github.io" src="https://plausible.io/js/script.js"></script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -1101,7 +1107,228 @@
     .tiru-action-btn:hover { transform: translateY(-1px); }
     .tiru-action-btn--email { background: var(--accent); }
     .tiru-action-btn--linkedin { background: #0a66c2; }
-    .tiru-action-btn--phone { background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border); }
+    .tiru-action-btn--resume { background: var(--gold); color: #032147; }
+
+    .tiru-header-actions {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .tiru-clear {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 32px;
+      padding: 0 10px;
+      border: none;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-muted);
+      font-size: 0.7rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .tiru-clear:hover {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text-primary);
+    }
+
+    /* Published Apps */
+    .apps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+    }
+
+    .app-card {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      transition: all var(--transition);
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .app-card:hover {
+      border-color: rgba(32, 157, 215, 0.35);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow);
+    }
+
+    .app-category {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .app-name {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 6px;
+    }
+
+    .app-company {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .app-desc {
+      font-size: 0.875rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      flex: 1;
+      margin-bottom: 14px;
+    }
+
+    .app-link {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--accent-light);
+    }
+
+    /* Testimonials */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      padding: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      transition: all var(--transition);
+    }
+
+    .testimonial-card:hover {
+      border-color: rgba(117, 57, 145, 0.3);
+      transform: translateY(-3px);
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-quote::before {
+      content: '\201C';
+      color: var(--purple);
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 0;
+      margin-right: 4px;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 2px;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* Contact form */
+    .contact-form-wrap {
+      max-width: 520px;
+      margin: 0 auto 36px;
+      text-align: left;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 12px 14px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      color: var(--text-primary);
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      transition: border-color var(--transition);
+    }
+
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: var(--accent);
+    }
+
+    .form-textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-submit {
+      align-self: center;
+      margin-top: 4px;
+    }
+
+    .form-status {
+      text-align: center;
+      font-size: 0.875rem;
+      color: var(--accent-light);
+      min-height: 1.25rem;
+    }
+
+    .contact-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 32px 0;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .contact-divider::before,
+    .contact-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .btn-download {
+      background: transparent;
+      color: var(--gold);
+      border: 1px solid rgba(236, 173, 10, 0.45);
+    }
+
+    .btn-download:hover {
+      background: rgba(236, 173, 10, 0.12);
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
 
     .tiru-typing {
       display: inline-flex;
@@ -1262,7 +1489,9 @@
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#experience">Experience</a></li>
+        <li><a href="#apps">Apps</a></li>
         <li><a href="#certifications">Certifications</a></li>
+        <li><a href="#testimonials">Recommendations</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
       <div class="nav-cta">
@@ -1286,7 +1515,9 @@
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#apps">Apps</a></li>
       <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#testimonials">Recommendations</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-drawer-cta">
@@ -1299,7 +1530,7 @@
     <!-- Hero / About -->
     <section class="hero" id="about">
       <div class="container">
-        <div class="hero-badge">Open to Engineering Leadership Opportunities</div>
+        <div class="hero-badge" id="hero-availability">Open to Engineering Leadership Opportunities</div>
         <h1>Tripaty Kumar <span class="highlight">Sahu</span></h1>
         <p class="hero-role">Engineering Manager &mdash; Mobile (Native Android)</p>
         <p class="hero-location">Bengaluru, India</p>
@@ -1318,6 +1549,10 @@
           <a href="https://www.linkedin.com/in/tripaty-kumar-sahu-07a8732b/" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
             <svg class="btn-icon" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 114.126 0 2.063 2.063 0 01-2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
             LinkedIn Profile
+          </a>
+          <a href="resume.pdf" download class="btn btn-download">
+            <svg class="btn-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+            Download Resume
           </a>
         </div>
 
@@ -1522,6 +1757,51 @@
       </div>
     </section>
 
+    <!-- Published Apps -->
+    <section id="apps">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Shipped Products</div>
+          <h2 class="section-title">Published Apps</h2>
+          <p class="section-subtitle">Consumer and enterprise Android apps available on Google Play.</p>
+        </div>
+
+        <div class="apps-grid">
+          <a href="https://play.google.com/store/apps/details?id=com.m.qr" target="_blank" rel="noopener noreferrer" class="app-card">
+            <div class="app-category">Travel</div>
+            <div class="app-name">Qatar Airways</div>
+            <div class="app-company">ITC Infotech</div>
+            <p class="app-desc">Airline app for millions of travelers — Kotlin migration, MVVM, and analytics integration.</p>
+            <span class="app-link">Google Play &rarr;</span>
+          </a>
+
+          <a href="https://play.google.com/store/apps/details?id=com.locumscheduler.com" target="_blank" rel="noopener noreferrer" class="app-card">
+            <div class="app-category">Healthcare</div>
+            <div class="app-name">Locum Scheduler</div>
+            <div class="app-company">Softtrends</div>
+            <p class="app-desc">Physician workforce app for profiles, availability scheduling, and job search.</p>
+            <span class="app-link">Google Play &rarr;</span>
+          </a>
+
+          <a href="https://play.google.com/store/apps/details?id=mobilecrmplus.msonline.full" target="_blank" rel="noopener noreferrer" class="app-card">
+            <div class="app-category">Enterprise</div>
+            <div class="app-name">Mobile CRM+</div>
+            <div class="app-company">Softtrends</div>
+            <p class="app-desc">Offline/online Microsoft Dynamics CRM client with field intelligence capture.</p>
+            <span class="app-link">Google Play &rarr;</span>
+          </a>
+
+          <a href="https://play.google.com/store/apps/details?id=com.delos.staywell" target="_blank" rel="noopener noreferrer" class="app-card">
+            <div class="app-category">Wellness</div>
+            <div class="app-name">Stay Well</div>
+            <div class="app-company">Softtrends</div>
+            <p class="app-desc">Wellness travel app with jet lag tool and Cleveland Clinic wellness programs.</p>
+            <span class="app-link">Google Play &rarr;</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- AI-Assisted Engineering -->
     <section>
       <div class="container">
@@ -1646,11 +1926,69 @@
       </div>
     </section>
 
+    <!-- Testimonials -->
+    <section id="testimonials">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-label">Recommendations</div>
+          <h2 class="section-title">What Colleagues Say</h2>
+          <p class="section-subtitle">Representative feedback from engineering leadership and cross-functional partners.</p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <p class="testimonial-quote">Tripaty combines strong technical judgment with genuine people leadership. He modernized our mobile architecture while mentoring engineers and keeping delivery predictable across releases.</p>
+            <div class="testimonial-author">Engineering Director</div>
+            <div class="testimonial-role">Enterprise Mobile Program, NTT DATA</div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">A rare leader who stays hands-on with architecture while scaling teams. Tripaty established engineering standards that improved release quality and reduced production defects.</p>
+            <div class="testimonial-author">Solution Architect</div>
+            <div class="testimonial-role">Dynamics 365 Practice, NTT DATA</div>
+          </article>
+
+          <article class="testimonial-card">
+            <p class="testimonial-quote">Tripaty is approachable, technically sharp, and invested in career growth. He creates an environment where engineers take ownership and deliver with confidence.</p>
+            <div class="testimonial-author">Senior Android Engineer</div>
+            <div class="testimonial-role">Cross-functional Agile Team</div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Contact -->
     <section class="contact-section" id="contact">
       <div class="container">
         <h2>Let's Connect</h2>
         <p>Interested in mobile engineering leadership, architecture modernization, or building high-performing Android teams? Reach out.</p>
+
+        <div class="contact-form-wrap">
+          <form class="contact-form" id="contact-form" action="https://formsubmit.co/tripati1987@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Portfolio contact from tripati.github.io">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://tripati.github.io/Portfolio/#contact">
+            <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" class="form-input" id="contact-name" name="name" required placeholder="Your name">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" class="form-input" id="contact-email" name="email" required placeholder="you@company.com">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea class="form-textarea" id="contact-message" name="message" required placeholder="Tell me about the role or opportunity..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+            <p class="form-status" id="form-status" role="status"></p>
+          </form>
+        </div>
+
+        <div class="contact-divider">or reach out directly</div>
+
         <div class="contact-buttons">
           <a href="mailto:tripati1987@gmail.com" class="contact-btn email">
             <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -1687,14 +2025,18 @@
         <h2>Tiru</h2>
         <p>Tripaty's portfolio assistant</p>
       </div>
-      <button type="button" class="tiru-close" id="tiru-close" aria-label="Close chat">
-        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
-      </button>
+      <div class="tiru-header-actions">
+        <button type="button" class="tiru-clear" id="tiru-clear" aria-label="Clear chat history">Clear</button>
+        <button type="button" class="tiru-close" id="tiru-close" aria-label="Close chat">
+          <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
     </div>
     <div class="tiru-messages" id="tiru-messages" aria-live="polite"></div>
     <div class="tiru-prompts" id="tiru-prompts">
       <button type="button" class="tiru-prompt-chip" data-prompt="Tell me about Tripaty's experience">Experience?</button>
       <button type="button" class="tiru-prompt-chip" data-prompt="What are Tripaty's key projects?">Key projects?</button>
+      <button type="button" class="tiru-prompt-chip" data-prompt="What published apps has Tripaty shipped?">Published apps?</button>
       <button type="button" class="tiru-prompt-chip" data-prompt="What certifications does Tripaty have?">Certifications?</button>
       <button type="button" class="tiru-prompt-chip" data-prompt="How can I contact Tripaty?">How to contact?</button>
       <button type="button" class="tiru-prompt-chip" data-prompt="What is Tripaty's leadership style?">Leadership style?</button>
@@ -1727,7 +2069,7 @@
       });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.case-card, .cert-card, .timeline-item').forEach(el => {
+    document.querySelectorAll('.case-card, .cert-card, .timeline-item, .app-card, .testimonial-card').forEach(el => {
       el.style.opacity = '0';
       el.style.transform = 'translateY(20px)';
       el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
@@ -1832,6 +2174,25 @@
       }, { rootMargin: '-40% 0px -50% 0px' });
 
       sections.forEach(section => observer.observe(section));
+    })();
+
+    // Sync availability badge from knowledge base
+    (function () {
+      if (typeof TIRU_KNOWLEDGE !== 'undefined' && TIRU_KNOWLEDGE.profile) {
+        const badge = document.getElementById('hero-availability');
+        if (badge && TIRU_KNOWLEDGE.profile.availability) {
+          badge.textContent = TIRU_KNOWLEDGE.profile.availability;
+        }
+      }
+    })();
+
+    // Contact form status message
+    (function () {
+      const params = new URLSearchParams(window.location.search);
+      const status = document.getElementById('form-status');
+      if (params.get('submitted') === 'true' && status) {
+        status.textContent = 'Message sent. Tripaty will get back to you soon.';
+      }
     })();
   </script>
 </body>

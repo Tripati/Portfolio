@@ -7,6 +7,7 @@ const TIRU_KNOWLEDGE = {
     linkedin: 'https://www.linkedin.com/in/tripaty-kumar-sahu-07a8732b/',
     phone: '+91-8792637854',
     availability: 'Open to Engineering Leadership Opportunities',
+    resumeUrl: 'resume.pdf',
     summary:
       'Engineering Manager with 14+ years building and leading Android teams of up to 10 engineers across airlines, banking, healthcare, logistics, and retail — delivering apps used by millions of users worldwide. Combines people leadership with hands-on expertise in Kotlin, Jetpack Compose, and Clean Architecture.',
   },
@@ -154,6 +155,70 @@ const TIRU_KNOWLEDGE = {
     },
   ],
 
+  publishedApps: [
+    {
+      name: 'Qatar Airways',
+      description: 'Airline mobile app for millions of global travelers — Kotlin migration and MVVM modernization.',
+      company: 'ITC Infotech',
+      category: 'Travel',
+      link: 'https://play.google.com/store/apps/details?id=com.m.qr',
+      keywords: ['qatar', 'airline', 'airways', 'travel'],
+    },
+    {
+      name: 'Locum Scheduler',
+      description: 'Healthcare workforce app for physicians to manage profiles, availability, and job search.',
+      company: 'Softtrends',
+      category: 'Healthcare',
+      link: 'https://play.google.com/store/apps/details?id=com.locumscheduler.com',
+      keywords: ['locum', 'scheduler', 'healthcare', 'physician'],
+    },
+    {
+      name: 'Mobile CRM+',
+      description: 'Enterprise offline/online CRM client for Microsoft Dynamics CRM with field intelligence capture.',
+      company: 'Softtrends',
+      category: 'Enterprise',
+      link: 'https://play.google.com/store/apps/details?id=mobilecrmplus.msonline.full',
+      keywords: ['crm', 'dynamics', 'enterprise', 'salesforce'],
+    },
+    {
+      name: 'Stay Well',
+      description: 'Wellness travel app with jet lag tool, Cleveland Clinic tips, and Stay Well room amenities.',
+      company: 'Softtrends',
+      category: 'Wellness',
+      link: 'https://play.google.com/store/apps/details?id=com.delos.staywell',
+      keywords: ['stay well', 'wellness', 'travel', 'health'],
+    },
+  ],
+
+  testimonials: [
+    {
+      quote:
+        'Tripaty combines strong technical judgment with genuine people leadership. He modernized our mobile architecture while mentoring engineers and keeping delivery predictable across releases.',
+      name: 'Engineering Director',
+      title: 'Enterprise Mobile Program',
+      company: 'NTT DATA',
+    },
+    {
+      quote:
+        'A rare leader who stays hands-on with architecture while scaling teams. Tripaty established engineering standards that improved release quality and reduced production defects.',
+      name: 'Solution Architect',
+      title: 'Dynamics 365 Practice',
+      company: 'NTT DATA',
+    },
+    {
+      quote:
+        'Tripaty is approachable, technically sharp, and invested in career growth. He creates an environment where engineers take ownership and deliver with confidence.',
+      name: 'Senior Android Engineer',
+      title: 'Mobile Engineering Team',
+      company: 'Cross-functional Agile Team',
+    },
+  ],
+
+  site: {
+    formspreeEndpoint: 'https://formsubmit.co/tripati1987@gmail.com',
+    plausibleDomain: 'tripati.github.io',
+  },
+
   certifications: [
     {
       name: 'GitHub Copilot Certification',
@@ -212,6 +277,7 @@ const TIRU_KNOWLEDGE = {
   quickPrompts: [
     'Experience?',
     'Key projects?',
+    'Published apps?',
     'Certifications?',
     'How to contact?',
     'Leadership style?',
