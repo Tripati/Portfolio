@@ -155,41 +155,6 @@ const TIRU_KNOWLEDGE = {
     },
   ],
 
-  publishedApps: [
-    {
-      name: 'Qatar Airways',
-      description: 'Airline mobile app for millions of global travelers — Kotlin migration and MVVM modernization.',
-      company: 'ITC Infotech',
-      category: 'Travel',
-      link: 'https://play.google.com/store/apps/details?id=com.m.qr',
-      keywords: ['qatar', 'airline', 'airways', 'travel'],
-    },
-    {
-      name: 'Locum Scheduler',
-      description: 'Healthcare workforce app for physicians to manage profiles, availability, and job search.',
-      company: 'Softtrends',
-      category: 'Healthcare',
-      link: 'https://play.google.com/store/apps/details?id=com.locumscheduler.com',
-      keywords: ['locum', 'scheduler', 'healthcare', 'physician'],
-    },
-    {
-      name: 'Mobile CRM+',
-      description: 'Enterprise offline/online CRM client for Microsoft Dynamics CRM with field intelligence capture.',
-      company: 'Softtrends',
-      category: 'Enterprise',
-      link: 'https://play.google.com/store/apps/details?id=mobilecrmplus.msonline.full',
-      keywords: ['crm', 'dynamics', 'enterprise', 'salesforce'],
-    },
-    {
-      name: 'Stay Well',
-      description: 'Wellness travel app with jet lag tool, Cleveland Clinic tips, and Stay Well room amenities.',
-      company: 'Softtrends',
-      category: 'Wellness',
-      link: 'https://play.google.com/store/apps/details?id=com.delos.staywell',
-      keywords: ['stay well', 'wellness', 'travel', 'health'],
-    },
-  ],
-
   testimonials: [
     {
       quote:
@@ -215,7 +180,6 @@ const TIRU_KNOWLEDGE = {
   ],
 
   site: {
-    formspreeEndpoint: 'https://formsubmit.co/tripati1987@gmail.com',
     plausibleDomain: 'tripati.github.io',
   },
 
@@ -277,7 +241,6 @@ const TIRU_KNOWLEDGE = {
   quickPrompts: [
     'Experience?',
     'Key projects?',
-    'Published apps?',
     'Certifications?',
     'How to contact?',
     'Leadership style?',

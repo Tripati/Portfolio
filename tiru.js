@@ -20,13 +20,6 @@
       ],
       weight: 1,
     },
-    publishedApps: {
-      keywords: [
-        'published', 'play store', 'google play', 'shipped', 'released', 'locum', 'crm', 'stay well',
-        'store link', 'live app', 'production app',
-      ],
-      weight: 1.2,
-    },
     skills: {
       keywords: [
         'skill', 'skills', 'kotlin', 'compose', 'jetpack', 'android', 'architecture', 'mvvm', 'technical',
@@ -297,9 +290,6 @@
       case 'ai':
         return renderAi();
 
-      case 'publishedApps':
-        return renderPublishedApps();
-
       case 'testimonials':
         return renderTestimonials();
 
@@ -430,23 +420,9 @@
       `<a href="${p.linkedin}" target="_blank" rel="noopener noreferrer" class="tiru-action-btn tiru-action-btn--linkedin">LinkedIn</a>` +
       `<a href="tel:${p.phone.replace(/[^+\d]/g, '')}" class="tiru-action-btn tiru-action-btn--phone">Call</a>` +
       `<a href="${resume}" download class="tiru-action-btn tiru-action-btn--resume">Resume</a>` +
-      `<a href="#contact" class="tiru-action-btn tiru-action-btn--phone">Contact Form</a>` +
       `</div>` +
-      `<p>${p.email} &bull; ${p.phone}</p>` +
       `<p><em>${p.availability}</em></p>`
     );
-  }
-
-  function renderPublishedApps() {
-    const apps = KB.publishedApps || [];
-    let html = `<p>Tripaty has shipped these published Android apps:</p><ul>`;
-    apps.forEach((app) => {
-      html +=
-        `<li><strong>${app.name}</strong> (${app.category}) — ${app.description} ` +
-        `<a href="${app.link}" target="_blank" rel="noopener noreferrer" class="tiru-link">Play Store &rarr;</a></li>`;
-    });
-    html += `</ul><p><a href="#apps" class="tiru-link">View published apps &darr;</a></p>`;
-    return html;
   }
 
   function renderTestimonials() {

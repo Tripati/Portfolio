@@ -7,10 +7,9 @@ Personal portfolio site for **Tripaty Kumar Sahu** — Engineering Manager, Mobi
 ## Features
 
 - Responsive portfolio with case studies, skills, certifications, and career timeline
-- **Published Apps** section with Google Play links
 - **Testimonials** from engineering colleagues
 - **Tiru** — rule-based chatbot assistant for recruiters (client-only, no API keys)
-- Contact form (FormSubmit) plus email, LinkedIn, and phone
+- Contact via email (click to reveal), LinkedIn, and Tiru chatbot
 - Downloadable resume PDF
 - Light/dark theme toggle (dark by default)
 - Mobile navigation with slide-out menu
@@ -41,7 +40,7 @@ Open [http://localhost:8080](http://localhost:8080).
 
 Resume and portfolio content lives in two places:
 
-1. **`index.html`** — visible page sections (hero, case studies, timeline, certs, apps, testimonials)
+1. **`index.html`** — visible page sections (hero, case studies, timeline, certs, testimonials)
 2. **`tiru-knowledge.js`** — structured data Tiru uses for chat responses
 
 When you update your resume, edit both files so the page and chatbot stay in sync. The hero availability badge reads from `TIRU_KNOWLEDGE.profile.availability` automatically.
