@@ -49,7 +49,27 @@ Replace `resume.pdf` with your full resume PDF when ready.
 
 ## Analytics
 
-Plausible is configured for `tripati.github.io`. Add the site at [plausible.io](https://plausible.io) to start collecting page views.
+Umami Cloud is configured for `tripati.github.io`.
+
+1. Sign up at [cloud.umami.is](https://cloud.umami.is) and add your website.
+2. Copy the website ID from **Edit website → Tracking code**.
+3. Paste it into `tiru-knowledge.js` as `site.umamiWebsiteId`, then sync:
+
+```bash
+node -e "
+const fs=require('fs');
+const code=fs.readFileSync('tiru-knowledge.js','utf8').replace('const TIRU_KNOWLEDGE = ','globalThis.TIRU_KNOWLEDGE = ');
+eval(code);
+fs.writeFileSync('portfolio.json', JSON.stringify(globalThis.TIRU_KNOWLEDGE, null, 2));
+const s=globalThis.TIRU_KNOWLEDGE.site;
+let html=fs.readFileSync('index.html','utf8');
+html=html.replace(/<script async src=\\\"https:\\/\\/cloud\\.umami\\.is\\/script\\.js\\\"[^>]*><\\/script>/,
+  '<script async src=\\\"'+s.umamiScriptUrl+'\\\" data-website-id=\\\"'+s.umamiWebsiteId+'\\\" data-domains=\\\"tripati.github.io\\\"></script>');
+fs.writeFileSync('index.html', html);
+"
+```
+
+4. Push to `main` and confirm page views in the Umami **Realtime** dashboard.
 
 ## Deployment
 

@@ -122,8 +122,8 @@
   }
 
   function trackEvent(name) {
-    if (typeof window.plausible === 'function') {
-      window.plausible(name);
+    if (typeof window.umami?.track === 'function') {
+      window.umami.track(name);
     }
   }
 

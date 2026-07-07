@@ -180,7 +180,8 @@ const TIRU_KNOWLEDGE = {
   ],
 
   site: {
-    plausibleDomain: 'tripati.github.io',
+    umamiWebsiteId: 'REPLACE_WITH_UMAMI_WEBSITE_ID',
+    umamiScriptUrl: 'https://cloud.umami.is/script.js',
   },
 
   certifications: [
