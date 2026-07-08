@@ -8,6 +8,7 @@ const TIRU_KNOWLEDGE = {
     phone: '+91-8792637854',
     availability: 'Open to Engineering Leadership Opportunities',
     resumeUrl: 'resume.pdf',
+    photoUrl: 'profile.jpg',
     summary:
       'Engineering Manager with 14+ years building and leading Android teams of up to 10 engineers across airlines, banking, healthcare, logistics, and retail — delivering apps used by millions of users worldwide. Combines people leadership with hands-on expertise in Kotlin, Jetpack Compose, and Clean Architecture.',
   },

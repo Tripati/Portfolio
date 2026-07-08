@@ -44,7 +44,8 @@
       "Engineering Management",
       "Clean Architecture"
     ],
-    "description": "Engineering Manager with 14+ years building and leading Android teams across enterprise and consumer apps."
+    "description": "Engineering Manager with 14+ years building and leading Android teams across enterprise and consumer apps.",
+    "image": "https://tripati.github.io/Portfolio/profile.jpg"
   }
   </script>
   <style>
@@ -334,6 +335,32 @@
     .hero {
       padding: 80px 0 60px;
       animation: fadeUp 0.8s ease-out;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 48px;
+      align-items: start;
+    }
+
+    .hero-photo-wrap {
+      flex-shrink: 0;
+    }
+
+    .hero-photo {
+      display: block;
+      width: 220px;
+      height: 220px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: var(--radius-lg);
+      border: 3px solid rgba(32, 157, 215, 0.45);
+      box-shadow: var(--shadow), 0 0 0 1px var(--border);
+    }
+
+    .hero-content {
+      min-width: 0;
     }
 
     @keyframes fadeUp {
@@ -1257,6 +1284,15 @@
       .nav-hamburger { display: inline-flex; }
       .nav-cta .btn { display: none; }
       .hero { padding: 48px 0 40px; }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        text-align: center;
+      }
+      .hero-photo-wrap { display: flex; justify-content: center; }
+      .hero-photo { width: 180px; height: 180px; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { margin: 0 auto; }
       section { padding: 48px 0; }
       .case-card { padding: 24px; }
       .par-grid { grid-template-columns: 1fr; }
@@ -1331,6 +1367,11 @@
     <!-- Hero / About -->
     <section class="hero" id="about">
       <div class="container">
+        <div class="hero-grid">
+          <div class="hero-photo-wrap">
+            <img src="profile.jpg" alt="Tripaty Kumar Sahu — Engineering Manager, Mobile" class="hero-photo" width="220" height="220" loading="eager">
+          </div>
+          <div class="hero-content">
         <div class="hero-badge" id="hero-availability">Open to Engineering Leadership Opportunities</div>
         <h1>Tripaty Kumar <span class="highlight">Sahu</span></h1>
         <p class="hero-role">Engineering Manager &mdash; Mobile (Native Android)</p>
@@ -1373,6 +1414,8 @@
           <div class="stat">
             <div class="stat-value">7</div>
             <div class="stat-label">Certifications</div>
+          </div>
+        </div>
           </div>
         </div>
       </div>
