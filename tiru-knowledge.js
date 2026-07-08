@@ -180,7 +180,7 @@ const TIRU_KNOWLEDGE = {
   ],
 
   site: {
-    umamiWebsiteId: 'REPLACE_WITH_UMAMI_WEBSITE_ID',
+    umamiWebsiteId: '4974e951-d4cf-4b2b-97d2-6c524f2cb6d5',
     umamiScriptUrl: 'https://cloud.umami.is/script.js',
   },
 
